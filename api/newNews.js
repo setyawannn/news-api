@@ -42,6 +42,12 @@ router.get("/news/:id", async (req, res) => {
 
 router.put("/news/:id", async (req, res) => {
   try {
+    const date = req.body.date
+    const [day, month, year] = date.split("-")
+    const dateObj = new Date(`${day} ${month}, ${year}`)
+    const conDate = dateObj.toLocaleDateString('en-US', { day: '2-digit', month: 'short', year: 'numeric' });
+
+    req.body.date = conDate;
     const { id } = req.params
     const newNews = await NewNews.findByIdAndUpdate(id, req.body)
 
