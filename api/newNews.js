@@ -17,16 +17,20 @@ router.post("/news", async (req, res) => {
     res.status(200).json(newNew)
   } catch (error) {
     console.log(error.message);
-    req.statusCode(500).json({ message: error.message })
+    res.statusCode(500).json({ message: error.message })
   }
 })
 
 router.get("/news", async (req, res) => {
   try {
-    const newNews = await NewNews.find({})
+    const search = req.query.search || ""
+    const regex = new RegExp(search.replace(/\s+/g, '\\s*'), 'i');
+    const newNews = await NewNews.find({ title: { $regex: regex }, })
+
     res.status(200).json(newNews)
   } catch (error) {
-    req.statusCode(500).json({ message: error.message })
+    console.log(error);
+    res.statusCode(500).json({ message: error.message })
   }
 })
 
@@ -36,7 +40,7 @@ router.get("/news/:id", async (req, res) => {
     const newNews = await NewNews.findById(id)
     res.status(200).json(newNews)
   } catch (error) {
-    req.statusCode(500).json({ message: error.message })
+    res.statusCode(500).json({ message: error.message })
   }
 })
 
