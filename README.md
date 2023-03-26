@@ -141,6 +141,90 @@ Response :
 }
 ```
 
+## Get by category
+
+Request :
+- Method : GET
+- Endpoint : `/api/v2/news/?category={category}`
+
+Response :
+
+```json 
+{
+    "title" : "string",
+    "author" : [
+        {
+        "name": "string",
+        "desc" : "string",
+        "image" : "string",
+        "verified" : "boolean",
+        }
+    ],
+    "category" : "string",
+    "image" : "string",
+    "content" : "string",
+    "time" : "string",
+    "tags" : "string",
+    "date" : "string"
+}
+```
+
+## Get by search
+
+Request :
+- Method : GET
+- Endpoint : `/api/v2/news/?search={search}`
+
+Response :
+
+```json 
+{
+    "title" : "string",
+    "author" : [
+        {
+        "name": "string",
+        "desc" : "string",
+        "image" : "string",
+        "verified" : "boolean",
+        }
+    ],
+    "category" : "string",
+    "image" : "string",
+    "content" : "string",
+    "time" : "string",
+    "tags" : "string",
+    "date" : "string"
+}
+```
+
+## Get by category & search
+
+Request :
+- Method : GET
+- Endpoint : `/api/v2/news/?category={category}&search={search}`
+
+Response :
+
+```json 
+{
+    "title" : "string",
+    "author" : [
+        {
+        "name": "string",
+        "desc" : "string",
+        "image" : "string",
+        "verified" : "boolean",
+        }
+    ],
+    "category" : "string",
+    "image" : "string",
+    "content" : "string",
+    "time" : "string",
+    "tags" : "string",
+    "date" : "string"
+}
+```
+
 ## Update tour
 
 Request :
