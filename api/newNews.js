@@ -81,7 +81,7 @@ router.delete("/news/:id", async (req, res) => {
       return res.status(404).json({ message: `cannot find any news with ID ${id}` })
     }
 
-    res.status(200).json(newNews)
+    res.status(200).json({ message: "Success delete news" })
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
