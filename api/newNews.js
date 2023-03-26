@@ -24,8 +24,14 @@ router.post("/news", async (req, res) => {
 router.get("/news", async (req, res) => {
   try {
     const search = req.query.search || ""
-    const regex = new RegExp(search.replace(/\s+/g, '\\s*'), 'i');
-    const newNews = await NewNews.find({ title: { $regex: regex }, })
+    const category = req.query.category || "";
+    const regexSearch = new RegExp(search.replace(/\s+/g, '\\s*'), 'i');
+    const regexCategory = new RegExp(category, 'i')
+
+    const newNews = await NewNews.find({
+      title: { $regex: regexSearch },
+      category: { $regex: regexCategory }
+    })
 
     res.status(200).json(newNews)
   } catch (error) {
