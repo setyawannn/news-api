@@ -2,7 +2,6 @@ const express = require("express")
 const NewNews = require("../models/newsNewModel")
 const router = express.Router()
 
-// CREATE
 router.post("/news", async (req, res) => {
   try {
 
@@ -62,7 +61,7 @@ router.put("/news/:id", async (req, res) => {
     const newNews = await NewNews.findByIdAndUpdate(id, req.body)
 
     if (!newNews) {
-      return res.status(404).json({ message: `cannot find any news with ID ${id}` })
+      return res.status(404).json({ message: `Cannot find any news with ID ${id}` })
     }
 
     const updatedNews = await NewNews.findById(id)
@@ -78,7 +77,7 @@ router.delete("/news/:id", async (req, res) => {
     const newNews = await NewNews.findByIdAndDelete(id)
 
     if (!newNews) {
-      return res.status(404).json({ message: `cannot find any news with ID ${id}` })
+      return res.status(404).json({ message: `Cannot find any news with ID ${id}` })
     }
 
     res.status(200).json({ message: "Success delete news" })
