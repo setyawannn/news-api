@@ -11,11 +11,6 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-// Welcome
-
-app.use("/api/v2", async (req, res) => {
-  res.json({ messaage: "Welcome to undefined API" })
-})
 
 // NEWS
 app.use("/api", newsRouter)
