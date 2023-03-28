@@ -31,7 +31,7 @@ Api specification for news production
 
 ## Base URL
 ``` 
-https://undefinednews.vercel.app/api/v2/news
+https://undefinednews.vercel.app/
 ```
 
 ## Create Tour
